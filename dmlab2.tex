@@ -1,0 +1,742 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref} % для гиперссылок
+\usepackage[russian]{babel} % для русского языка
+\usepackage{mathtools} % для математических выражений
+
+\title{Дискретная математика \\ Лабораторная работа 2}
+
+\begin{document}
+
+\maketitle
+
+\section{Упражнение}
+
+Решить уравнения путем рассуждения:
+
+\textbf{Выполнение}:
+\begin{enumerate}
+\item[1)] \overline{(A \Longleftrightarrow B)} \wedge \overline{(A \Longleftrightarrow C)} \rightarrow \overline{(A\Longleftrightarrow B \wedge D)} = 0
+\end{enumerate}\\
+\\
+Чтобы это выполнялось 1-ая часть $(\overline{(A \Longleftrightarrow B)} \wedge \overline{(A \Longleftrightarrow C)})$ должна равняться 1, а 2-ая $(\overline{(A\Longleftrightarrow B \wedge D)})$ равняться 0.
+Тогда А будет равняться 0, а $B = C = 1$. Тогда D будет 0 т.к. $B = 1$. \\
+\\
+Доказано!
+\begin{enumerate}
+\item[2)] (A \rightarrow C) \wedge \overline{((B \rightarrow C) \rightarrow ((A \vee B) \rightarrow C))} = 1
+\end{enumerate}
+\\
+\\
+Чтобы это выполнялось должно быть 1-ая формула $(A \rightarrow C) = 1$, 2-ая $(\overline{((B \rightarrow C) \rightarrow ((A \vee B) \rightarrow C))}) = 0$. Разложим на мелкие кусочки: $1 - (A \rightarrow C), 2 - (B \rightarrow C), 3 - ((A \vee B) \rightarrow C)$. При этом каждая формула должна соответствовать значению:\\
+$(A \rightarrow C) = 1$ \\
+$(B \rightarrow C) = 1$ \\
+$((A \vee B) \rightarrow C) = 0$ \\
+При этом находим, что $C = 0$, $A = 0$, $B = 0$. Теперь подставим все под нашу формулу:
+$(0 \rightarrow 0) \wedge \overline{(0 \rightarrow 0) \rightarrow ((0 \vee 0) \rightarrow 0))} = 1$.\\
+Выходит:\\
+$0 = 1$ \\
+\\
+НЕ доказано!
+
+\begin{enumerate}
+\item[3)] \overline{(A \rightarrow \overline{B})} \rightarrow \overline{((A \vee (B \Longleftrightarrow A)) \rightarrow C)} = 1
+\end{enumerate} \\
+\\
+Чтобы выполнялось это 1-ая формула $(A \rightarrow \overline{B}) = 0$, а 2-ая $((A \vee (B \Longleftrightarrow A)) \rightarrow C) = 0$. Если посчитать из первой формулы, то будет что $A = 1$, а $B = 1$, после этого подставим во 2-ую формулу и поймем, что, если у нас будет $C = 0$, все прекрасно выполниться.
+\\
+\\
+Доказано!
+
+\section{Упражнение}
+
+Доказать равносильность без использования таблиц истинности:
+\begin{enumerate}
+\item[1)] $((((A \rightarrow B) \rightarrow \overline{A}) \rightarrow \overline{B}) \rightarrow \overline{C}) \rightarrow C = C$
+\end{enumerate}
+Разложим все по формуле: $(A \rightarrow B = \overline{A} \vee B)$\\
+1. $\overline{A} \vee B \rightarrow \overline{A}$ \\
+2. $(A \wedge \overline{B}) \vee \overline{A} \rightarrow \overline{B}$\\
+3. $(\overline{A} \vee B) \wedge (A \vee \overline{B}) \rightarrow \overline{C}$\\
+4. $(A \wedge \overline{B}) \vee (\overline{A} \wedge B) \vee \overline{C} \rightarrow C$\\
+5. $(\overline{A} \vee B) \wedge (A \vee \overline{B}) \wedge C \vee C = C$\\
+6. $1 \wedge C \vee C = C$\\
+7. $C = C$
+
+\begin{enumerate}
+\item[2)] $(\overline{(A \wedge B \rightarrow C)} \rightarrow \overline{A \wedge C}) \rightarrow (A \wedge B \rightarrow \overline{A \wedge (B \rightarrow C )}) = \overline{A} \vee \overline{B} \vee \overline{C}$
+\end{enumerate}
+
+\section{Упражнение}
+
+Доказать, что ФЛВ является тавтологиями:
+\begin{enumerate}
+\item[1)] $A \rightarrow A \vee B$
+\end{enumerate}
+Способ № 3: (тавтология)\\
+$A \rightarrow A \vee B = 1$
+$\overline{A} \vee A \vee B = 1$\\
+$1 \vee B = 1$\\
+Доказано!
+\begin{enumerate}
+\item[2)] $(A \rightarrow B) \Longleftrightarrow (\overline{B} \rightarrow \overline{A}) $
+\end{enumerate}
+Способ № 3: (тавтология)\\
+$(A \rightarrow B) \Longleftrightarrow (\overline{B} \rightarrow \overline{A}) = 1$\\
+$(\overline{A} \vee B) \Longleftrightarrow (B \vee \overline{A}) = 1$\\
+Получилось две одинаковых формулы - формула тавтология.\\
+Доказано!
+\begin{enumerate}
+\item[3)] $(A \rightarrow B) \wedge (B \rightarrow C) \rightarrow (A \rightarrow C)$
+\end{enumerate}
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \rightarrow B$ & $B \rightarrow C$ & $A \rightarrow C$ & $(1)$ & $(2)$\\
+\hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 1 & 0 & 0 & 1\\
+1 & 0 & 1 & 0 & 1 & 1 & 0 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+\begin{enumerate}
+\item[4)] $(A \vee B) \wedge ((A \rightarrow C) \wedge (B \rightarrow C)) \rightarrow C$
+\end{enumerate}
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \vee B) \wedge ((A \rightarrow C) \wedge (B \rightarrow C)) = 1$, а $C = 0$. Если подставим C во все маленькие формулы то значения $B = 0, A = 0$, но при этом не выполняется условие $A \vee B$ значит формула тавтология.\\
+\begin{enumerate}
+\item[5)] $(A \Longleftrightarrow B) \wedge (B \Longleftrightarrow C) \rightarrow (A \rightarrow C)$
+\end{enumerate}
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \Longleftrightarrow B$ & $B \Longleftrightarrow C$ & $A \rightarrow C$ & $(1)$ & $(2)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1 & 0 & 1 & 0 & 1\\
+0 & 1 & 0 & 0 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 0 & 1 & 1 & 0 & 1\\
+1 & 0 & 0 & 0 & 1 & 0 & 0 & 1\\
+1 & 0 & 1 & 0 & 0 & 1 & 0 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+\begin{enumerate}
+\item[6)] $(A \rightarrow B) \rightarrow ((B \rightarrow C) \rightarrow (A \rightarrow C))$
+\end{enumerate}
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \rightarrow B) = 1$, а $((B \rightarrow C) \rightarrow (A \rightarrow C)) = 0$. Если решим $((B \rightarrow C) \rightarrow (A \rightarrow C)) = 0$ то значения $A = 1, C = 0$. Подставим в формулу и получим, что $B = 1$, но при этом не выполняется условие $(B \rightarrow C)$ значит формула тавтология.\\
+
+\section{Упражнение}
+Проверить справедливость логических следований:(тремя способами)
+\begin{enumerate}
+\item[1)] $A \rightarrow B,D , D \rightarrow \overline{C},C \vee \overline{B} |= A \rightarrow \overline{D}$
+\end{enumerate}
+$(A \rightarrow B) \wedge D \wedge (D \rightarrow \overline{C}) \wedge (C \vee \overline{B}) \rightarrow (A \rightarrow \overline{D})$\\
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \rightarrow B) \wedge D \wedge (D \rightarrow \overline{C}) \wedge (C \vee \overline{B}) = 1$, а $(A \rightarrow \overline{D}) = 0$. Если решим все это, то получим значения $A = 1, B = 0, C = 0, D = 1$, но при этом не выполняется условие $(A \rightarrow B) = 1$ - формула тавтология.\\
+
+\begin{enumerate}
+\item[2)] $(A \rightarrow B) \rightarrow C$ |$=(A \rightarrow B) \rightarrow (A \rightarrow C)$
+\end{enumerate}
+$((A \rightarrow B) \rightarrow C) \rightarrow ((A \rightarrow B) \rightarrow (A \rightarrow C))$\\
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $((A \rightarrow B) \rightarrow C) = 1$, а $((A \rightarrow B) \rightarrow (A \rightarrow C)) = 0$. Если решим все это, то получим значения $A = 1, B = 1, C = 0$, но при этом не выполняется условие $((A \rightarrow B) \rightarrow C) = 1$ - формула тавтология.\\
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \rightarrow B$ & $A \rightarrow C$ & $(1)$ & $(2)$ & $(3)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 0 & 1 & 1\\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+0 & 1 & 0 & 1 & 1 & 0 & 1 & 1\\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\
+1 & 0 & 1 & 0 & 1 & 1 & 1 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+
+\begin{enumerate}
+\item[3)] $A \rightarrow B, B \rightarrow C$ |$= A \rightarrow C$
+\end{enumerate}
+$(A \rightarrow B) \wedge
+(B \rightarrow C) \rightarrow (A \rightarrow C)$\\
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \rightarrow B) \wedge (B \rightarrow C) = 1$, а $(A \rightarrow C) = 0$. Если решим все это, то получим значения $A = 1, B = 1, C = 0$, но при этом не выполняется условие $(B \rightarrow C) = 1$ - формула тавтология.\\
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \rightarrow B$ & $B \rightarrow C$ & $A \rightarrow C$ & $(1)$ & $(2)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 1 & 0 & 0 & 1\\
+1 & 0 & 1 & 0 & 1 & 1 & 0 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+\end{document}\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref} % для гиперссылок
+\usepackage[russian]{babel} % для русского языка
+\usepackage{mathtools} % для математических выражений
+
+\title{Дискретная математика \\ Лабораторная работа 2}
+
+\begin{document}
+
+\maketitle
+
+\section{Упражнение}
+
+Решить уравнения путем рассуждения:
+
+\textbf{Выполнение}:
+\begin{enumerate}
+\item[1)] \overline{(A \Longleftrightarrow B)} \wedge \overline{(A \Longleftrightarrow C)} \rightarrow \overline{(A\Longleftrightarrow B \wedge D)} = 0
+\end{enumerate}\\
+\\
+Чтобы это выполнялось 1-ая часть $(\overline{(A \Longleftrightarrow B)} \wedge \overline{(A \Longleftrightarrow C)})$ должна равняться 1, а 2-ая $(\overline{(A\Longleftrightarrow B \wedge D)})$ равняться 0.
+Тогда А будет равняться 0, а $B = C = 1$. Тогда D будет 0 т.к. $B = 1$. \\
+\\
+Доказано!
+\begin{enumerate}
+\item[2)] (A \rightarrow C) \wedge \overline{((B \rightarrow C) \rightarrow ((A \vee B) \rightarrow C))} = 1
+\end{enumerate}
+\\
+\\
+Чтобы это выполнялось должно быть 1-ая формула $(A \rightarrow C) = 1$, 2-ая $(\overline{((B \rightarrow C) \rightarrow ((A \vee B) \rightarrow C))}) = 0$. Разложим на мелкие кусочки: $1 - (A \rightarrow C), 2 - (B \rightarrow C), 3 - ((A \vee B) \rightarrow C)$. При этом каждая формула должна соответствовать значению:\\
+$(A \rightarrow C) = 1$ \\
+$(B \rightarrow C) = 1$ \\
+$((A \vee B) \rightarrow C) = 0$ \\
+При этом находим, что $C = 0$, $A = 0$, $B = 0$. Теперь подставим все под нашу формулу:
+$(0 \rightarrow 0) \wedge \overline{(0 \rightarrow 0) \rightarrow ((0 \vee 0) \rightarrow 0))} = 1$.\\
+Выходит:\\
+$0 = 1$ \\
+\\
+НЕ доказано!
+
+\begin{enumerate}
+\item[3)] \overline{(A \rightarrow \overline{B})} \rightarrow \overline{((A \vee (B \Longleftrightarrow A)) \rightarrow C)} = 1
+\end{enumerate} \\
+\\
+Чтобы выполнялось это 1-ая формула $(A \rightarrow \overline{B}) = 0$, а 2-ая $((A \vee (B \Longleftrightarrow A)) \rightarrow C) = 0$. Если посчитать из первой формулы, то будет что $A = 1$, а $B = 1$, после этого подставим во 2-ую формулу и поймем, что, если у нас будет $C = 0$, все прекрасно выполниться.
+\\
+\\
+Доказано!
+
+\section{Упражнение}
+
+Доказать равносильность без использования таблиц истинности:
+\begin{enumerate}
+\item[1)] $((((A \rightarrow B) \rightarrow \overline{A}) \rightarrow \overline{B}) \rightarrow \overline{C}) \rightarrow C = C$
+\end{enumerate}
+Разложим все по формуле: $(A \rightarrow B = \overline{A} \vee B)$\\
+1. $\overline{A} \vee B \rightarrow \overline{A}$ \\
+2. $(A \wedge \overline{B}) \vee \overline{A} \rightarrow \overline{B}$\\
+3. $(\overline{A} \vee B) \wedge (A \vee \overline{B}) \rightarrow \overline{C}$\\
+4. $(A \wedge \overline{B}) \vee (\overline{A} \wedge B) \vee \overline{C} \rightarrow C$\\
+5. $(\overline{A} \vee B) \wedge (A \vee \overline{B}) \wedge C \vee C = C$\\
+6. $1 \wedge C \vee C = C$\\
+7. $C = C$
+
+\begin{enumerate}
+\item[2)] $(\overline{(A \wedge B \rightarrow C)} \rightarrow \overline{A \wedge C}) \rightarrow (A \wedge B \rightarrow \overline{A \wedge (B \rightarrow C )}) = \overline{A} \vee \overline{B} \vee
+\overline{C}$
+\end{enumerate}
+
+\section{Упражнение}
+
+Доказать, что ФЛВ является тавтологиями:
+\begin{enumerate}
+\item[1)] $A \rightarrow A \vee B$
+\end{enumerate}
+Способ № 3: (тавтология)\\
+$A \rightarrow A \vee B = 1$
+$\overline{A} \vee A \vee B = 1$\\
+$1 \vee B = 1$\\
+Доказано!
+\begin{enumerate}
+\item[2)] $(A \rightarrow B) \Longleftrightarrow (\overline{B} \rightarrow \overline{A}) $
+\end{enumerate}
+Способ № 3: (тавтология)\\
+$(A \rightarrow B) \Longleftrightarrow (\overline{B} \rightarrow \overline{A}) = 1$\\
+$(\overline{A} \vee B) \Longleftrightarrow (B \vee \overline{A}) = 1$\\
+Получилось две одинаковых формулы - формула тавтология.\\
+Доказано!
+\begin{enumerate}
+\item[3)] $(A \rightarrow B) \wedge (B \rightarrow C) \rightarrow (A \rightarrow C)$
+\end{enumerate}
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \rightarrow B$ & $B \rightarrow C$ & $A \rightarrow C$ & $(1)$ & $(2)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 1 & 0 & 0 & 1\\
+1 & 0 & 1 & 0 & 1 & 1 & 0 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+\begin{enumerate}
+\item[4)] $(A \vee B) \wedge ((A \rightarrow C) \wedge (B \rightarrow C)) \rightarrow C$
+\end{enumerate}
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \vee B) \wedge ((A \rightarrow C) \wedge (B \rightarrow C)) = 1$, а $C = 0$. Если подставим C во все маленькие формулы то значения $B = 0, A = 0$, но при этом не выполняется условие $A \vee B$ значит формула тавтология.\\
+\begin{enumerate}
+\item[5)] $(A \Longleftrightarrow B) \wedge (B \Longleftrightarrow C) \rightarrow (A \rightarrow C)$
+\end{enumerate}
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \Longleftrightarrow B$ & $B \Longleftrightarrow C$ & $A \rightarrow C$ & $(1)$ & $(2)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1 & 0 & 1 & 0 & 1\\
+0 & 1 & 0 & 0 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 0 & 1 & 1 & 0 & 1\\
+1 & 0 & 0 & 0 & 1 & 0 & 0 & 1\\
+1 & 0 & 1 & 0 & 0 & 1 & 0 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+\begin{enumerate}
+\item[6)] $(A \rightarrow B) \rightarrow ((B \rightarrow C) \rightarrow (A \rightarrow C))$
+\end{enumerate}
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \rightarrow B) = 1$, а $((B \rightarrow C) \rightarrow (A \rightarrow C)) = 0$. Если решим $((B \rightarrow C) \rightarrow (A \rightarrow C)) = 0$ то значения $A = 1, C = 0$. Подставим в формулу и получим, что $B = 1$, но при этом не выполняется условие $(B \rightarrow C)$ значит формула тавтология.\\
+
+\section{Упражнение}
+Проверить справедливость логических следований:(тремя способами)
+\begin{enumerate}
+\item[1)] $A \rightarrow B,D , D \rightarrow \overline{C},C \vee \overline{B} |= A \rightarrow \overline{D}$
+\end{enumerate}
+$(A \rightarrow B) \wedge D \wedge (D \rightarrow \overline{C}) \wedge (C \vee \overline{B}) \rightarrow (A \rightarrow \overline{D})$\\
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \rightarrow B) \wedge D \wedge (D \rightarrow \overline{C}) \wedge (C \vee \overline{B}) = 1$, а $(A \rightarrow \overline{D}) = 0$. Если решим все это, то получим значения $A = 1, B = 0, C = 0, D = 1$, но при этом не выполняется условие $(A \rightarrow B) = 1$ - формула тавтология.\\
+
+\begin{enumerate}
+\item[2)] $(A \rightarrow B) \rightarrow C$ |$=(A \rightarrow B) \rightarrow (A \rightarrow C)$
+\end{enumerate}
+$((A \rightarrow B) \rightarrow C) \rightarrow ((A \rightarrow B) \rightarrow (A \rightarrow C))$\\
+Способ № 1: (от противного)\\
+Допустим что наша формула равна
+0, то получится, что $((A \rightarrow B) \rightarrow C) = 1$, а $((A \rightarrow B) \rightarrow (A \rightarrow C)) = 0$. Если решим все это, то получим значения $A = 1, B = 1, C = 0$, но при этом не выполняется условие $((A \rightarrow B) \rightarrow C) = 1$ - формула тавтология.\\
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \rightarrow B$ & $A \rightarrow C$ & $(1)$ & $(2)$ & $(3)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 0 & 1 & 1\\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+0 & 1 & 0 & 1 & 1 & 0 & 1 & 1\\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\
+1 & 0 & 1 & 0 & 1 & 1 & 1 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+
+\begin{enumerate}
+\item[3)] $A \rightarrow B, B \rightarrow C$ |$= A \rightarrow C$
+\end{enumerate}
+$(A \rightarrow B) \wedge (B \rightarrow C) \rightarrow (A \rightarrow C)$\\
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \rightarrow B) \wedge (B \rightarrow C) = 1$, а $(A \rightarrow C) = 0$. Если решим все это, то получим значения $A = 1, B = 1, C = 0$, но при этом не выполняется условие $(B \rightarrow C) = 1$ - формула тавтология.\\
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \rightarrow B$ & $B \rightarrow C$ & $A \rightarrow C$ & $(1)$ & $(2)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 1 & 0 & 0 & 1\\
+1 & 0 & 1 & 0 & 1 & 1 & 0 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+\end{document}\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref} % для гиперссылок
+\usepackage[russian]{babel} % для русского языка
+\usepackage{mathtools} % для математических выражений
+
+\title{Дискретная математика \\ Лабораторная работа 2}
+
+\begin{document}
+
+\maketitle
+
+\section{Упражнение}
+
+Решить уравнения путем рассуждения:
+
+\textbf{Выполнение}:
+\begin{enumerate}
+\item[1)] \overline{(A \Longleftrightarrow B)} \wedge \overline{(A \Longleftrightarrow C)} \rightarrow \overline{(A\Longleftrightarrow B \wedge D)} = 0
+\end{enumerate}\\
+\\
+Чтобы это выполнялось 1-ая часть $(\overline{(A \Longleftrightarrow B)} \wedge \overline{(A \Longleftrightarrow C)})$ должна равняться 1, а 2-ая $(\overline{(A\Longleftrightarrow B \wedge D)})$ равняться 0.
+Тогда А будет равняться 0, а $B = C = 1$. Тогда D будет 0 т.к. $B = 1$. \\
+\\
+Доказано!
+\begin{enumerate}
+\item[2)] (A \rightarrow C) \wedge \overline{((B \rightarrow C) \rightarrow ((A \vee B) \rightarrow C))} = 1
+\end{enumerate}
+\\
+\\
+Чтобы это выполнялось должно быть 1-ая формула $(A \rightarrow C) = 1$, 2-ая $(\overline{((B \rightarrow C) \rightarrow ((A \vee B) \rightarrow C))}) = 0$. Разложим на мелкие кусочки: $1 - (A \rightarrow C), 2 - (B \rightarrow C), 3 - ((A \vee B) \rightarrow C)$. При этом каждая формула должна соответствовать значению:\\
+$(A \rightarrow C) = 1$ \\
+$(B \rightarrow C) = 1$ \\
+$((A \vee B) \rightarrow C) = 0$ \\
+При этом находим, что $C = 0$, $A = 0$, $B = 0$. Теперь подставим все под нашу формулу:
+$(0 \rightarrow 0) \wedge \overline{(0 \rightarrow 0) \rightarrow ((0 \vee 0) \rightarrow 0))} = 1$.\\
+Выходит:\\
+$0 = 1$ \\
+\\
+НЕ доказано!
+
+\begin{enumerate}
+\item[3)] \overline{(A \rightarrow \overline{B})} \rightarrow \overline{((A \vee (B \Longleftrightarrow A)) \rightarrow C)} = 1
+\end{enumerate} \\
+\\
+Чтобы выполнялось это 1-ая формула $(A \rightarrow \overline{B}) = 0$, а 2-ая $((A \vee (B \Longleftrightarrow A)) \rightarrow C) = 0$. Если посчитать из первой формулы, то будет что $A = 1$, а $B = 1$, после этого подставим во 2-ую формулу и поймем, что, если у нас будет $C = 0$, все прекрасно
+выполниться.
+\\
+\\
+Доказано!
+
+\section{Упражнение}
+
+Доказать равносильность без использования таблиц истинности:
+\begin{enumerate}
+\item[1)] $((((A \rightarrow B) \rightarrow \overline{A}) \rightarrow \overline{B}) \rightarrow \overline{C}) \rightarrow C = C$
+\end{enumerate}
+Разложим все по формуле: $(A \rightarrow B = \overline{A} \vee B)$\\
+1. $\overline{A} \vee B \rightarrow \overline{A}$ \\
+2. $(A \wedge \overline{B}) \vee \overline{A} \rightarrow \overline{B}$\\
+3. $(\overline{A} \vee B) \wedge (A \vee \overline{B}) \rightarrow \overline{C}$\\
+4. $(A \wedge \overline{B}) \vee (\overline{A} \wedge B) \vee \overline{C} \rightarrow C$\\
+5. $(\overline{A} \vee B) \wedge (A \vee \overline{B}) \wedge C \vee C = C$\\
+6. $1 \wedge C \vee C = C$\\
+7. $C = C$
+
+\begin{enumerate}
+\item[2)] $(\overline{(A \wedge B \rightarrow C)} \rightarrow \overline{A \wedge C}) \rightarrow (A \wedge B \rightarrow \overline{A \wedge (B \rightarrow C )}) = \overline{A} \vee \overline{B} \vee \overline{C}$
+\end{enumerate}
+
+\section{Упражнение}
+
+Доказать, что ФЛВ является тавтологиями:
+\begin{enumerate}
+\item[1)] $A \rightarrow A \vee B$
+\end{enumerate}
+Способ № 3: (тавтология)\\
+$A \rightarrow A \vee B = 1$
+$\overline{A} \vee A \vee B = 1$\\
+$1 \vee B = 1$\\
+Доказано!
+\begin{enumerate}
+\item[2)] $(A \rightarrow B) \Longleftrightarrow (\overline{B} \rightarrow \overline{A}) $
+\end{enumerate}
+Способ № 3: (тавтология)\\
+$(A \rightarrow B) \Longleftrightarrow (\overline{B} \rightarrow \overline{A}) = 1$\\
+$(\overline{A} \vee B) \Longleftrightarrow (B \vee \overline{A}) = 1$\\
+Получилось две одинаковых формулы - формула тавтология.\\
+Доказано!
+\begin{enumerate}
+\item[3)] $(A \rightarrow B) \wedge (B \rightarrow C) \rightarrow (A \rightarrow C)$
+\end{enumerate}
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \rightarrow B$ & $B \rightarrow C$ & $A \rightarrow C$ & $(1)$ & $(2)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 1 & 0 & 0 & 1\\
+1 & 0 & 1 & 0 & 1 & 1 & 0 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+\begin{enumerate}
+\item[4)] $(A \vee B) \wedge ((A \rightarrow C) \wedge (B \rightarrow C)) \rightarrow C$
+\end{enumerate}
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \vee B) \wedge ((A \rightarrow C) \wedge (B \rightarrow C)) = 1$, а $C = 0$. Если подставим C во все маленькие формулы то значения $B = 0, A = 0$, но при этом не выполняется условие $A \vee B$ значит формула тавтология.\\
+\begin{enumerate}
+\item[5)] $(A \Longleftrightarrow B) \wedge (B \Longleftrightarrow C) \rightarrow (A \rightarrow C)$
+\end{enumerate}
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \Longleftrightarrow B$ & $B \Longleftrightarrow C$ & $A \rightarrow C$ & $(1)$ & $(2)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1 & 0 & 1 & 0 & 1\\
+0 & 1 & 0 & 0 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 0 & 1 & 1 & 0 & 1\\
+1 & 0 & 0 & 0 & 1 & 0 & 0 & 1\\
+1 & 0 & 1 & 0 & 0 & 1 & 0 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+\begin{enumerate}
+\item[6)] $(A \rightarrow B) \rightarrow ((B \rightarrow C) \rightarrow (A \rightarrow C))$
+\end{enumerate}
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \rightarrow B) = 1$, а $((B \rightarrow C) \rightarrow (A \rightarrow C)) = 0$. Если решим $((B \rightarrow C) \rightarrow (A \rightarrow C)) = 0$ то значения $A = 1, C = 0$. Подставим в формулу и получим, что $B = 1$, но при этом не выполняется условие $(B \rightarrow C)$ значит формула тавтология.\\
+
+\section{Упражнение}
+Проверить справедливость
+логических следований:(тремя способами)
+\begin{enumerate}
+\item[1)] $A \rightarrow B,D , D \rightarrow \overline{C},C \vee \overline{B} |= A \rightarrow \overline{D}$
+\end{enumerate}
+$(A \rightarrow B) \wedge D \wedge (D \rightarrow \overline{C}) \wedge (C \vee \overline{B}) \rightarrow (A \rightarrow \overline{D})$\\
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \rightarrow B) \wedge D \wedge (D \rightarrow \overline{C}) \wedge (C \vee \overline{B}) = 1$, а $(A \rightarrow \overline{D}) = 0$. Если решим все это, то получим значения $A = 1, B = 0, C = 0, D = 1$, но при этом не выполняется условие $(A \rightarrow B) = 1$ - формула тавтология.\\
+
+\begin{enumerate}
+\item[2)] $(A \rightarrow B) \rightarrow C$ |$=(A \rightarrow B) \rightarrow (A \rightarrow C)$
+\end{enumerate}
+$((A \rightarrow B) \rightarrow C) \rightarrow ((A \rightarrow B) \rightarrow (A \rightarrow C))$\\
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $((A \rightarrow B) \rightarrow C) = 1$, а $((A \rightarrow B) \rightarrow (A \rightarrow C)) = 0$. Если решим все это, то получим значения $A = 1, B = 1, C = 0$, но при этом не выполняется условие $((A \rightarrow B) \rightarrow C) = 1$ - формула тавтология.\\
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \rightarrow B$ & $A \rightarrow C$ & $(1)$ & $(2)$ & $(3)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 0 & 1 & 1\\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+0 & 1 & 0 & 1 & 1 & 0 & 1 & 1\\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\
+1 & 0 & 1 & 0 & 1 & 1 & 1 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+
+\begin{enumerate}
+\item[3)] $A \rightarrow B, B \rightarrow C$ |$= A \rightarrow C$
+\end{enumerate}
+$(A \rightarrow B) \wedge (B \rightarrow C) \rightarrow (A \rightarrow C)$\\
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \rightarrow B) \wedge (B \rightarrow C) = 1$, а $(A \rightarrow C) = 0$. Если решим все это, то получим значения $A = 1, B = 1, C = 0$, но при этом не выполняется условие $(B \rightarrow C) = 1$ - формула тавтология.\\
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \rightarrow B$ & $B \rightarrow C$ & $A \rightarrow C$ & $(1)$ & $(2)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 1 & 0 & 0 & 1\\
+1 & 0 & 1 & 0 & 1 & 1 & 0 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+\end{document}\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref} % для гиперссылок
+\usepackage[russian]{babel} % для русского языка
+\usepackage{mathtools} % для математических выражений
+
+\title{Дискретная математика \\ Лабораторная работа 2}
+
+\begin{document}
+
+\maketitle
+
+\section{Упражнение}
+
+Решить уравнения путем рассуждения:
+
+\textbf{Выполнение}:
+\begin{enumerate}
+\item[1)] \overline{(A \Longleftrightarrow B)} \wedge \overline{(A \Longleftrightarrow C)} \rightarrow \overline{(A\Longleftrightarrow B \wedge D)} = 0
+\end{enumerate}\\
+\\
+Чтобы это выполнялось 1-ая часть $(\overline{(A \Longleftrightarrow B)} \wedge \overline{(A \Longleftrightarrow C)})$ должна равняться 1, а 2-ая $(\overline{(A\Longleftrightarrow B \wedge D)})$ равняться 0.
+Тогда А будет равняться 0, а $B = C = 1$. Тогда D будет 0 т.к. $B = 1$. \\
+\\
+Доказано!
+\begin{enumerate}
+\item[2)] (A \rightarrow C) \wedge \overline{((B \rightarrow C) \rightarrow ((A \vee B) \rightarrow C))} = 1
+\end{enumerate}
+\\
+\\
+Чтобы это выполнялось должно быть 1-ая формула $(A \rightarrow C) = 1$, 2-ая $(\overline{((B \rightarrow C) \rightarrow ((A \vee B) \rightarrow C))}) =
+0$. Разложим на мелкие кусочки: $1 - (A \rightarrow C), 2 - (B \rightarrow C), 3 - ((A \vee B) \rightarrow C)$. При этом каждая формула должна соответствовать значению:\\
+$(A \rightarrow C) = 1$ \\
+$(B \rightarrow C) = 1$ \\
+$((A \vee B) \rightarrow C) = 0$ \\
+При этом находим, что $C = 0$, $A = 0$, $B = 0$. Теперь подставим все под нашу формулу:
+$(0 \rightarrow 0) \wedge \overline{(0 \rightarrow 0) \rightarrow ((0 \vee 0) \rightarrow 0))} = 1$.\\
+Выходит:\\
+$0 = 1$ \\
+\\
+НЕ доказано!
+
+\begin{enumerate}
+\item[3)] \overline{(A \rightarrow \overline{B})} \rightarrow \overline{((A \vee (B \Longleftrightarrow A)) \rightarrow C)} = 1
+\end{enumerate} \\
+\\
+Чтобы выполнялось это 1-ая формула $(A \rightarrow \overline{B}) = 0$, а 2-ая $((A \vee (B \Longleftrightarrow A)) \rightarrow C) = 0$. Если посчитать из первой формулы, то будет что $A = 1$, а $B = 1$, после этого подставим во 2-ую формулу и поймем, что, если у нас будет $C = 0$, все прекрасно выполниться.
+\\
+\\
+Доказано!
+
+\section{Упражнение}
+
+Доказать равносильность без использования таблиц истинности:
+\begin{enumerate}
+\item[1)] $((((A \rightarrow B) \rightarrow \overline{A}) \rightarrow \overline{B}) \rightarrow \overline{C}) \rightarrow C = C$
+\end{enumerate}
+Разложим все по формуле: $(A \rightarrow B = \overline{A} \vee B)$\\
+1. $\overline{A} \vee B \rightarrow \overline{A}$ \\
+2. $(A \wedge \overline{B}) \vee \overline{A} \rightarrow \overline{B}$\\
+3. $(\overline{A} \vee B) \wedge (A \vee \overline{B}) \rightarrow \overline{C}$\\
+4. $(A \wedge \overline{B}) \vee (\overline{A} \wedge B) \vee \overline{C} \rightarrow C$\\
+5. $(\overline{A} \vee B) \wedge (A \vee \overline{B}) \wedge C \vee C = C$\\
+6. $1 \wedge C \vee C = C$\\
+7. $C = C$
+
+\begin{enumerate}
+\item[2)] $(\overline{(A \wedge B \rightarrow C)} \rightarrow \overline{A \wedge C}) \rightarrow (A \wedge B \rightarrow \overline{A \wedge (B \rightarrow C )}) = \overline{A} \vee \overline{B} \vee \overline{C}$
+\end{enumerate}
+
+\section{Упражнение}
+
+Доказать, что ФЛВ является тавтологиями:
+\begin{enumerate}
+\item[1)] $A \rightarrow A \vee B$
+\end{enumerate}
+Способ № 3: (тавтология)\\
+$A \rightarrow A \vee B = 1$
+$\overline{A} \vee A \vee B = 1$\\
+$1 \vee B = 1$\\
+Доказано!
+\begin{enumerate}
+\item[2)] $(A \rightarrow B) \Longleftrightarrow (\overline{B} \rightarrow \overline{A}) $
+\end{enumerate}
+Способ № 3: (тавтология)\\
+$(A \rightarrow B) \Longleftrightarrow (\overline{B} \rightarrow \overline{A}) = 1$\\
+$(\overline{A} \vee B) \Longleftrightarrow (B \vee \overline{A}) = 1$\\
+Получилось две одинаковых формулы - формула тавтология.\\
+Доказано!
+\begin{enumerate}
+\item[3)] $(A \rightarrow B) \wedge (B \rightarrow C) \rightarrow (A \rightarrow C)$
+\end{enumerate}
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \rightarrow B$ & $B \rightarrow C$ & $A \rightarrow C$ & $(1)$ & $(2)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 1 & 0 & 0 & 1\\
+1 & 0 & 1 & 0 & 1 & 1 & 0 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+\begin{enumerate}
+\item[4)] $(A \vee B) \wedge ((A \rightarrow C) \wedge (B \rightarrow C)) \rightarrow C$
+\end{enumerate}
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \vee B) \wedge ((A \rightarrow C) \wedge (B \rightarrow C)) = 1$, а $C = 0$. Если подставим C во все маленькие формулы то значения $B = 0, A = 0$, но при этом не выполняется условие $A \vee B$ значит формула тавтология.\\
+\begin{enumerate}
+\item[5)] $(A \Longleftrightarrow B) \wedge (B \Longleftrightarrow C) \rightarrow (A \rightarrow C)$
+\end{enumerate}
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \Longleftrightarrow B$ & $B \Longleftrightarrow C$ & $A \rightarrow C$ &
+$(1)$ & $(2)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1 & 0 & 1 & 0 & 1\\
+0 & 1 & 0 & 0 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 0 & 1 & 1 & 0 & 1\\
+1 & 0 & 0 & 0 & 1 & 0 & 0 & 1\\
+1 & 0 & 1 & 0 & 0 & 1 & 0 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+\begin{enumerate}
+\item[6)] $(A \rightarrow B) \rightarrow ((B \rightarrow C) \rightarrow (A \rightarrow C))$
+\end{enumerate}
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \rightarrow B) = 1$, а $((B \rightarrow C) \rightarrow (A \rightarrow C)) = 0$. Если решим $((B \rightarrow C) \rightarrow (A \rightarrow C)) = 0$ то значения $A = 1, C = 0$. Подставим в формулу и получим, что $B = 1$, но при этом не выполняется условие $(B \rightarrow C)$ значит формула тавтология.\\
+
+\section{Упражнение}
+Проверить справедливость логических следований:(тремя способами)
+\begin{enumerate}
+\item[1)] $A \rightarrow B,D , D \rightarrow \overline{C},C \vee \overline{B} |= A \rightarrow \overline{D}$
+\end{enumerate}
+$(A \rightarrow B) \wedge D \wedge (D \rightarrow \overline{C}) \wedge (C \vee \overline{B}) \rightarrow (A \rightarrow \overline{D})$\\
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \rightarrow B) \wedge D \wedge (D \rightarrow \overline{C}) \wedge (C \vee \overline{B}) = 1$, а $(A \rightarrow \overline{D}) = 0$. Если решим все это, то получим значения $A = 1, B = 0, C = 0, D = 1$, но при этом не выполняется условие $(A \rightarrow B) = 1$ - формула тавтология.\\
+
+\begin{enumerate}
+\item[2)] $(A \rightarrow B) \rightarrow C$ |$=(A \rightarrow B) \rightarrow (A \rightarrow C)$
+\end{enumerate}
+$((A \rightarrow B) \rightarrow C) \rightarrow ((A \rightarrow B) \rightarrow (A \rightarrow C))$\\
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $((A \rightarrow B) \rightarrow C) = 1$, а $((A \rightarrow B) \rightarrow (A \rightarrow C)) = 0$. Если решим все это, то получим значения $A = 1, B = 1, C = 0$, но при этом не выполняется условие $((A \rightarrow B) \rightarrow C) = 1$ - формула тавтология.\\
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \rightarrow B$ & $A \rightarrow C$ & $(1)$ & $(2)$ & $(3)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 0 & 1 & 1\\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+0 & 1 & 0 & 1 & 1 & 0 & 1 & 1\\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\
+1 & 0 & 1 & 0 & 1 & 1 & 1 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+
+\begin{enumerate}
+\item[3)] $A \rightarrow B, B \rightarrow C$ |$= A \rightarrow C$
+\end{enumerate}
+$(A \rightarrow B) \wedge (B \rightarrow C) \rightarrow (A \rightarrow C)$\\
+Способ № 1: (от противного)\\
+Допустим что наша формула равна 0, то получится, что $(A \rightarrow B) \wedge (B \rightarrow C) = 1$, а $(A \rightarrow C) = 0$. Если решим все это, то получим значения $A = 1, B = 1, C = 0$, но при этом не выполняется условие $(B \rightarrow C) = 1$ - формула тавтология.\\
+Способ № 2: (таблица истинности)\\
+\begin{tabular}{ | c | c | c | c | c | c | c| c | } % с - колонка с текстом по центру
+$A$ & $B$ & $C$ & $A \rightarrow B$ & $B \rightarrow C$ & $A \rightarrow C$ & $(1)$ & $(2)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 1 & 0 & 0 & 1\\
+1 & 0 & 1 & 0 & 1 & 1 & 0 & 1\\
+1 & 1 & 0 & 1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular} \\
+Из таблицы истинности видим: конечный результат всегда будет равен 1 - формула тавтология.
+\end{document}

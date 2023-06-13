@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{DM Laba 1}
+\author{Adam Loziuk}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Task 1 \\ \\
+If the swallows are flying low, it will rain or it won't rain. \\
+A = "swallows fly low" \\
+B = "It's going to rain" \\
+$$ A \Rightarrow B \vee \bar B $$ \\
+\\
+If prime numbers are divisible without remainder only by one and by themselves and 13 is divisible without remainder only by 1 and by 13, then 13 is a prime number. \\
+A = "prime numbers are divisible without remainder only by one and by themselves" \\
+B = "13 is divided without remainder only by 1 and by 13" \\
+C = "13 is a prime number" \\
+$$ A \wedge B \Rightarrow C $$ \\
+\\
+If I go to university today then I will get useful knowledge, but if I don't go to university today I'll be idle all day. \\
+A = "I'm going to university today" \\
+B = "I will get useful knowledge" \\
+C = "I'll be idle all day" \\
+$$ (A \Rightarrow B) \vee (\bar A \Rightarrow C) $$ \\
+If I go to university today or I don't go to university today then I will get useful knowledge or I'll be idle all day. \\
+$$ A \vee \bar A \Rightarrow B \vee C $$ \\ \\
+
+Task 2 \\ \\
+1.\ $ (\bar A \vee B) \wedge (A \vee \bar B) \Leftrightarrow (A  \Leftrightarrow B) $ \qquad \qquad (1) \\ \\
+\begin{tabular}{ | c | c | c | c | c | c | c | }
+A & B & $\bar A \vee B$ & $A \vee \bar B$ & $A \Leftrightarrow B$ & $(\bar A \vee B) \wedge (A \vee \bar B)$ & (1) \\
+\hline
+0 & 0 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+0 & 1 & 1 & 0 & 0 & 0 & 1 \\
+\hline
+1 & 0 & 0 & 1 & 0 & 0 & 1 \\
+\hline
+1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+\end{tabular} \\ \\
+ \\
+2.\ $ \overline{A \vee B} \Rightarrow (C \Rightarrow A) $ \qquad \qquad (2) \\ \\
+\begin{tabular}{ | c | c | c | c | c | c | }
+A & B & C & $\overline{A \vee B}$ & $C \Rightarrow A$ & (2) \\
+\hline
+0 & 0 & 0 & 1 & 1 & 1 \\
+\hline
+0 & 0 & 1 & 1 & 0 & 0 \\
+\hline
+0 & 1 & 0 & 0 & 1 & 1 \\
+\hline
+0 & 1 & 1 & 0 & 0 & 1 \\
+\hline
+1 & 0 & 0 & 0 & 1 & 1 \\
+\hline
+1 & 0 & 1 & 0 & 1 & 1 \\
+\hline
+1 & 1 & 0 & 0 & 1 & 1 \\
+\hline
+1 & 1 & 1 & 0 & 1 & 1 \\
+\hline
+\end{tabular} \\ \\ 
+\\
+3.\ $ C \Rightarrow \bar A \vee B \wedge \bar C $ \qquad \qquad (3) \\ \\
+\begin{tabular}{ | c | c | c | c | c | c | }
+A & B & C & $B \wedge \bar C$ & $\bar A \vee B \wedge \bar C$ & (3) \\
+\hline
+0 & 0 & 0 & 0 & 1 & 1 \\
+\hline
+0 & 0 & 1 & 0 & 1 & 1 \\
+\hline
+0 & 1 & 0 & 1 & 1 & 1 \\
+\hline
+0 & 1 & 1 & 0 & 1 & 1 \\
+\hline
+1 & 0 & 0 & 0 & 0 & 1 \\
+\hline
+1 & 0 & 1 & 0 & 0 & 0 \\
+\hline
+1 & 1 & 0 & 1 & 1 & 1 \\
+\hline
+1 & 1 & 1 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+
+\end{document}
